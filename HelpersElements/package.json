@@ -1,0 +1,31 @@
+{
+  "name": "test_grid_flexbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deryost/MicroTests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deryost/MicroTests/issues"
+  },
+  "homepage": "https://github.com/deryost/MicroTests#readme",
+  "devDependencies": {
+    "beeper": "^1.1.0",
+    "colors": "^1.1.2",
+    "eslint": "^1.7.2",
+    "gulp": "^3.9.0",
+    "gulp-filter": "^3.0.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-watch": "^4.3.5",
+    "node-notifier": "^4.3.1",
+    "rimraf": "^2.4.3"
+  }
+}

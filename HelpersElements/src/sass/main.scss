@@ -1,0 +1,56 @@
+@mixin btn($color-border: #333, $color-background: #ccc, $color-text: #333) {
+  display: inline-block;
+  //font-weight: $btn-font-weight;
+  text-align: center;
+  //white-space: nowrap;
+  vertical-align: middle;
+  //touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid $color-border;
+  background-color: $color-background;
+  border-radius: .2rem;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  text-decoration: none;
+  color: $color-text;
+  box-shadow: .1rem .1rem .05rem rgba(0,0,0,.1);
+  transition: all 0.5s ease;
+  & + &{
+    margin-top: .5rem;
+  }
+  &:hover {
+    border-color: darken($color-border, 20%);
+    background-color: darken($color-background, 20%);
+    color: darken($color-text, 20%);
+    box-shadow: .1rem .1rem .25rem rgba(0,0,0,.5);
+
+  }
+  //border: $border-width solid transparent;
+  //@include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $line-height, $btn-border-radius);
+  //@include transition(all .2s ease-in-out);
+
+}
+
+%btn{
+  @include btn(#f0f, #f8f, #606);
+}
+
+%btn2{
+  @include btn(#ff0, #ff8, #660);
+  padding: .9rem 2rem;
+  font-size: 2rem;
+}
+
+html, body{
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: arial;
+}
+
+/*a.btn, button{
+  @extend %btn;
+}*/
+a{@extend %btn}
+button{@extend %btn2;}
