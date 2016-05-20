@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<script>
+const superheros = [
+    {alias: 'Batman', firstName: 'Bruce', lastName: 'Wayne', hasSuperPower: false, killCount: 234, canFly: false, team: 'Justice league'},
+    {alias: 'Superman', firstName: 'Clark', lastName: 'Kent', hasSuperPower: true, killCount: 1, canFly: true, team: 'Justice league'},
+    {alias: 'Spiderman', firstName: 'Peter', lastName: 'Parker', hasSuperPower: true, killCount: 0, canFly: false, team: 'Avengers'},
+    {alias: 'Punisher', firstName: 'Frank', lastName: 'Castle', hasSuperPower: false, killCount: 534, canFly: false, team: null},
+    {alias: 'Daredevil', firstName: 'Matt', lastName: 'Murdock', hasSuperPower: true, killCount: 0, canFly: false, team: 'Defenders'},
+    {alias: 'Jessica Jones', firstName: 'Jessica', lastName: 'Jones', hasSuperPower: true, killCount: 1, canFly: true, team: 'Defenders'},
+    {alias: 'Iron Man', firstName: 'Tony', lastName: 'Stark', hasSuperPower: false, killCount: 5, canFly: true, team: 'Avengers'},
+    {alias: 'Captain America', firstName: 'Steve', lastName: 'Rogers', hasSuperPower: true, killCount: 0, canFly: false, team: 'Avengers'}
+];
+
+onlySuperPowers = superheros.filter( ({hasSuperPower}) => hasSuperPower );
+neverKill = superheros.filter( ({killCount}) => killCount == 0 );
+bestKillers = superheros
+                .sort( (a, b) => a.killCount < b.killCount )
+                .filter( ({killCount}) => killCount != 0 )
+                .map( ({alias, killCount}) => ({alias, killCount}) );
+realIdendity = superheros.map( ({firstName, lastName}) => ({firstName, lastName}) );
+infos = superheros.map( (h) => h.firstName + ' ' + h.lastName + ' is the superheros called ' + h.alias );
+teamKillCount = superheros.reduce( (previous, current) => {
+    const teamName = (current.team != null) ? current.team : 'No team';
+    if(!previous[teamName]) previous[teamName] = 0;
+    previous[teamName] += current.killCount;
+    return previous;
+}, [] );
+</script>
+<button onclick="console.table(superheros);">All</button><br>
+<button onclick="console.table(onlySuperPowers);">onlySuperPowers</button><br>
+<button onclick="console.table(neverKill);">neverKill</button><br>
+<button onclick="console.table(bestKillers);">bestKillers</button><br>
+<button onclick="console.table(realIdendity);">realIdendity</button><br>
+<button onclick="console.table(infos);">infos</button><br>
+<button onclick="console.table(teamKillCount);">teamKillCount</button><br>
+
+</body>
+</html>
